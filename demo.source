@@ -1,0 +1,391 @@
+swagger: '2.0'
+info:
+  version: 1.0.0
+  title: NeuraLangAPI
+host: ca-techinnov-neuralang.azurewebsites.net
+schemes:
+  - https
+paths:
+  /api/neuraLang:
+    post:
+      tags:
+        - Home47
+      operationId: Home_GetJson
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: quizAttemptDto
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/QuizAttemptDto'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /api/neuraLang/getuserontology:
+    post:
+      tags:
+        - Home2
+      operationId: Home_GetJson
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: quizAttemptDto
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/QuizAttemptDto'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /nl/api/v1/User/Login:
+    post:
+      tags:
+        - User
+      operationId: User_Login
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: loginDto
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/LoginDto'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /nl/api/v1/User/CreateUser:
+    put:
+      tags:
+        - User
+      operationId: User_CreateUser
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: user
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UserDto'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  '/nl/api/v1/User/DeleteUser/{userId}':
+    delete:
+      tags:
+        - User
+      operationId: User_DeleteUser
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  '/nl/api/v1/User/ToDisableUser/{userId}':
+    post:
+      tags:
+        - User
+      operationId: User_ToDisableUser
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  '/nl/api/v1/User/ActivateUser/{userId}':
+    post:
+      tags:
+        - User
+      operationId: User_ActivateUser
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /nl/api/v1/User/GetUserByUsername:
+    get:
+      tags:
+        - User
+      operationId: User_GetUserByUsername
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: userName.userName
+          in: query
+          required: false
+          type: string
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  '/nl/api/v1/User/GetUserByUserId/{userId}':
+    get:
+      tags:
+        - User
+      operationId: User_GetUserByUserId
+      consumes: []
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: userId
+          in: path
+          required: true
+          type: string
+          format: uuid
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /nl/api/v1/User/EditUserData:
+    post:
+      tags:
+        - User
+      operationId: User_EditUserData
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: userDto
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/UserDto'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+  /nl/api/v1/User/ChangePassword:
+    post:
+      tags:
+        - User
+      operationId: User_ChangePassword
+      consumes:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - text/json
+        - application/xml
+        - text/xml
+      parameters:
+        - name: userParams
+          in: body
+          required: true
+          schema:
+            $ref: '#/definitions/ChangePassDto'
+      responses:
+        '200':
+          description: OK
+          schema:
+            type: object
+definitions:
+  QuizAttemptDto:
+    type: object
+    properties:
+      ClientId:
+        format: int32
+        type: integer
+      LearnerId:
+        format: int32
+        type: integer
+      LearnerLevel:
+        format: int32
+        type: integer
+      Language:
+        type: string
+      QuestionAttempts:
+        type: array
+        items:
+          $ref: '#/definitions/QuestionAttemptDto'
+      QuizLanguage:
+        format: int32
+        enum:
+          - 1
+          - 2
+        type: integer
+        readOnly: true
+  QuestionAttemptDto:
+    type: object
+    properties:
+      QuestionId:
+        format: int32
+        type: integer
+      Score:
+        format: double
+        type: number
+  LoginDto:
+    type: object
+    properties:
+      UserName:
+        type: string
+      Password:
+        type: string
+  UserDto:
+    type: object
+    properties:
+      Id:
+        format: uuid
+        type: string
+        example: 00000000-0000-0000-0000-000000000000
+      Username:
+        type: string
+      Password:
+        type: string
+      FirstName:
+        type: string
+      LastName:
+        type: string
+      MiddleName:
+        type: string
+      Role:
+        format: int32
+        enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+          - 6
+          - 7
+          - 8
+          - 9
+          - 10
+          - 11
+        type: integer
+      Status:
+        format: int32
+        enum:
+          - 1
+          - 2
+          - 3
+          - 4
+          - 5
+        type: integer
+      SecondaryEmail:
+        type: string
+      SecondaryEmail2:
+        type: string
+      SecondaryEmail3:
+        type: string
+  ForgotPassDto:
+    type: object
+    properties:
+      UserName:
+        type: string
+  ChangePassDto:
+    type: object
+    properties:
+      Id:
+        format: uuid
+        type: string
+        example: 00000000-0000-0000-0000-000000000000
+      OldPass:
+        type: string
+      NewPass1:
+        type: string
+      NewPass2:
+        type: string

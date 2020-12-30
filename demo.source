@@ -9,7 +9,7 @@ paths:
   /api/neuraLang:
     post:
       tags:
-        - Home47
+        - Home476
       operationId: Home_GetJson
       consumes:
         - application/json
